@@ -11,7 +11,7 @@ KISS and manual way of running Kali Linux (`kali-bleeding-edge`) in container wi
   2. `cd kalidock`
 
 ### B. Fix the Mount Point Permissions
-`sudo chown -R 100999:100998 home/`
+`sudo chown -R 1000:1000 home/`
 
 ### C. Modify NUSER and NPASS in Containerfile
   1. `sed -i "s/NUSER/kali/g" Dockerfile`
