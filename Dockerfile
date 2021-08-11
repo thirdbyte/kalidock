@@ -9,7 +9,7 @@ RUN nuser=NUSER && npass=NPASS && \
    useradd -rm -d /home/$nuser -s /bin/bash -G sudo -u 1000 $nuser && \
    echo "$nuser:$npass" | chpasswd && \
    sed -i "s/#Port\ 22/Port\ 33322/g" /etc/ssh/sshd_config && \
-   systemctl enable ssh && \
+   mkdir -p /run/sshd && \
    apt-get -y autoremove && \
    apt-get -y clean && \
    rm -rf /var/lib/apt/lists/* && \
