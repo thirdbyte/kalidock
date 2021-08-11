@@ -8,6 +8,7 @@ RUN nuser=NUSER && npass=NPASS && \
    DEBIAN_FRONTEND=noninteractive apt-get install -y netcat wget nano curl sudo net-tools git openssh-server tmux dbus-x11 pciutils iproute2 iputils-ping bash-completion && \
    useradd -rm -d /home/$nuser -s /bin/bash -G sudo -u 1000 $nuser && \
    echo "$nuser:$npass" | chpasswd && \
+   echo 'Defaults !fqdn' >> /etc/sudoers && \
    sed -i "s/#Port\ 22/Port\ 33322/g" /etc/ssh/sshd_config && \
    mkdir -p /run/sshd && \
    apt-get -y autoremove && \
