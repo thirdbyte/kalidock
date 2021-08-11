@@ -25,7 +25,7 @@ KISS and manual way of running Kali Linux (`kali-bleeding-edge`) in container wi
 `docker build --rm -t kalidock .`
 
 ### E. Create the Container
-  1. `docker run --init -d --name=kalidock --hostname=kalidock --network=host --privileged -v $(pwd)/home:/home/kali kalidock`
+  1. `docker run --init -d --name=kalidock --shm-size=4g --hostname=kalidock --network=host --privileged -v $(pwd)/home:/home/kali kalidock`
   2. `docker stop kalidock`
 ---
 
