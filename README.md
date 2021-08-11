@@ -1,7 +1,11 @@
 # kalidock
 
 KISS and manual way of running Kali Linux (`kali-bleeding-edge`) in container with host networking, SSH X forwarding and more, all using `docker`
+---
 
+## PRERQUISITES
+  1. Docker must be installed - `docker --version`
+  2. $USER must be added to the `docker` group - `sudo usermod -aG docker $USER`
 ---
 
 ## SETUP
@@ -23,7 +27,6 @@ KISS and manual way of running Kali Linux (`kali-bleeding-edge`) in container wi
 ### E. Create the Container
   1. `docker run --init -d --name=kalidock --hostname=kalidock --network=host --privileged -v $(pwd)/home:/home/kali kalidock`
   2. `docker stop kalidock`
-
 ---
 
 ## USAGE
@@ -39,7 +42,6 @@ KISS and manual way of running Kali Linux (`kali-bleeding-edge`) in container wi
 
 ### I. Stop the Container
 `docker stop kalidock`
-
 ---
 
 ## REMOVAL
