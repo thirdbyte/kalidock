@@ -6,7 +6,7 @@ KISS and manual way of running Kali Linux (`kali-bleeding-edge`) in container wi
 
 ## PRERQUISITES
   1. Docker must be installed - `docker --version`
-  2. $USER must be added to the `docker` group - `sudo usermod -aG docker $USER`
+  2. `$USER` must be added to the `docker` group - `sudo usermod -aG docker $USER`
 
 ---
 
