@@ -5,7 +5,7 @@ RUN nuser=NUSER && npass=NPASS && \
    echo "deb http://kali.download/kali kali-bleeding-edge main contrib non-free" > /etc/apt/sources.list.d/kali-bleeding-edge.list && \
    apt-get -y update && \
    apt-get -y dist-upgrade && \
-   DEBIAN_FRONTEND=noninteractive apt-get install -y netcat wget nano curl sudo net-tools git openssh-server tmux dbus-x11 pciutils iproute2 iputils-ping bash-completion && \
+   DEBIAN_FRONTEND=noninteractive apt-get install -y ncat wget nano curl sudo net-tools git openssh-server tmux dbus-x11 pciutils iproute2 iputils-ping bash-completion && \
    useradd -rm -d /home/$nuser -s /bin/bash -G sudo -u 1000 $nuser && \
    echo "$nuser:$npass" | chpasswd && \
    echo 'Defaults !fqdn' >> /etc/sudoers && \
