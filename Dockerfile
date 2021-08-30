@@ -18,8 +18,8 @@ RUN nuser=NUSER && npass=NPASS && \
    echo '#!/bin/bash' > /usr/local/bin/gui && \
    echo '$@ &>/dev/null &' >> /usr/local/bin/gui && \
    chmod +x /usr/local/bin/gui && \   
-   wget https://raw.githubusercontent.com/thirdbyte/kalipod/master/home/.bashrc -O /home/$nuser/.bashrc && \
-   wget https://raw.githubusercontent.com/thirdbyte/kalipod/master/home/.bashrc -O /root/.bashrc && \
+   wget https://raw.githubusercontent.com/thirdbyte/kalidock/master/home/.bashrc -O /home/$nuser/.bashrc && \
+   wget https://raw.githubusercontent.com/thirdbyte/kalidock/master/home/.bashrc -O /root/.bashrc && \
    touch /home/$nuser/.hushlogin && \
    touch /root/.hushlogin && \
    echo 'set -g history-limit 10000' > /home/$nuser/.tmux.conf && \
