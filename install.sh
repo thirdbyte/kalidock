@@ -14,7 +14,6 @@ function check_init {
     
     fi
 
-
     if ! groups | grep -q "docker"; then
         echo "'$USER' is not present in the 'docker' group"
         exit 1
@@ -30,6 +29,13 @@ function check_init {
     if ! sed --version &>/dev/null; then
     
       echo "Sed is not installed"
+      exit 1
+    
+    fi
+    
+    if ! git --version &>/dev/null; then
+    
+      echo "Git is not installed"
       exit 1
     
     fi
