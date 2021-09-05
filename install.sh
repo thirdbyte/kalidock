@@ -65,5 +65,4 @@ echo "ssh -p65522 $name@localhost" > $HOME/.local/bin/$name-shell && \
 echo "docker stop $name &>/dev/null" > $HOME/.local/bin/$name-stop && \
 echo "docker stop $name &>/dev/null && docker rm $name &>/dev/null && docker rmi $name --force &>/dev/null && docker rmi kali-bleeding-edge:latest --force &>/dev/null && echo 'Elevated privileges required' && sudo rm -rf $HOME/.$name &>/dev/null && rm -rf $HOME/.local/bin/$name-* &>/dev/null" > $HOME/.local/bin/$name-uninstall && \
 chmod +x $HOME/.local/bin/$name-* && \
-rm -rf /tmp/kalidock && \
 echo "Done" 
