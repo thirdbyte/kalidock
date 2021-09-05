@@ -4,10 +4,10 @@ KISS way of running Kali Linux (`kali-bleeding-edge`) in container with host net
 
 ## PREREQUISITES
 
-  1. Docker must be installed
-  2. `$USER` must be a part of the `docker` group
-  3. `$USER` must be a part of the `sudo`/`wheel` group
-  4. Internet must be accessbile
+  - Docker must be installed
+  - `$USER` must be a part of the `docker` group
+  - `$USER` must be a part of the `sudo`/`wheel` group
+  - Internet must be accessbile
 
 ---
 
