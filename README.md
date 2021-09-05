@@ -33,4 +33,4 @@ KISS way of running Kali Linux (`kali-bleeding-edge`) in container with host net
 
 ---
 
-**Note:** Replace `kalidock` with the name given to the container at the time of installation.
+**Note:** For usage and uninstallation, replace `kalidock` with the name given to the container at the time of installation.
