@@ -28,11 +28,6 @@ function check_init {
         echo "Sed is not installed"
         exit 1
     fi
-    
-    if ! git --version &>/dev/null; then
-        echo "Git is not installed"
-        exit 1
-    fi
 
 }
 
