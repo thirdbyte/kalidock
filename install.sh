@@ -51,17 +51,20 @@ echo -n "Container name : "; read name
 echo -n "Username : "; read theusername
 echo -n "Password : "; read thepassword
 
-git clone http://github.com/thirdbyte/kalidock $name && \
+git clone http://github.com/thirdbyte/kalidock /tmp/kalidock && \
+mkdir -p $HOME/.$name && \
+cp -r /tmp/kalidock/home/. $HOME/.$name/. && \
 echo "Elevated privileges required" && \
-sudo chown -R 1000:1000 $name/home/ && \
-sed -i "s/NUSER/$theusername/g" $name/Dockerfile && \
-sed -i "s/NPASS/$thepassword/g" $name/Dockerfile && \
-docker build --rm -t $name $name/. && \
-docker run --init -d --name=$name --shm-size=4g --hostname=$name --network=host --privileged -v $(pwd)/$name/home:/home/$theusername $name && \
+sudo chown -R 1000:1000 $HOME/.$name/ && \
+sed -i "s/NUSER/$theusername/g" /tmp/kalidock/Dockerfile && \
+sed -i "s/NPASS/$thepassword/g" /tmp/kalidock/Dockerfile && \
+docker build --rm -t $name /tmp/kalidock/. && \
+docker run --init -d --name=$name --shm-size=4g --hostname=$name --network=host --privileged -v $(echo $HOME)/.$name/:/home/$theusername $name && \
 docker stop $name && \
 echo "docker start $name &>/dev/null" > $HOME/.local/bin/$name-start && \
 echo "ssh -p65522 $name@localhost" > $HOME/.local/bin/$name-shell && \
 echo "docker stop $name &>/dev/null" > $HOME/.local/bin/$name-stop && \
-echo "docker stop $name &>/dev/null && docker rm $name &>/dev/null && docker rmi $name --force &>/dev/null && docker rmi kali-bleeding-edge:latest --force &>/dev/null && echo 'Elevated privileges required' && sudo rm -rf $PWD/$name &>/dev/null && rm -rf $HOME/.local/bin/$name-* &>/dev/null" > $HOME/.local/bin/$name-uninstall && \
+echo "docker stop $name &>/dev/null && docker rm $name &>/dev/null && docker rmi $name --force &>/dev/null && docker rmi kali-bleeding-edge:latest --force &>/dev/null && echo 'Elevated privileges required' && sudo rm -rf $HOME/.$name &>/dev/null && rm -rf $HOME/.local/bin/$name-* &>/dev/null" > $HOME/.local/bin/$name-uninstall && \
 chmod +x $HOME/.local/bin/$name-* && \
+rm -rf /tmp/kalidock && \
 echo "Done" 
