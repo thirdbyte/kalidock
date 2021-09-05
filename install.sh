@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function check_init {
 
     if groups | grep -q "sudo" || groups | grep -q "wheel"; then
@@ -8,10 +10,8 @@ function check_init {
     fi
 
     if ! docker --version &>/dev/null; then
-    
-      echo "Docker is not installed"
-      exit 1
-    
+        echo "Docker is not installed"
+        exit 1
     fi
 
     if ! groups | grep -q "docker"; then
@@ -20,36 +20,28 @@ function check_init {
     fi
 
     if ! ping -q -c 1 -W 1 github.com &>/dev/null; then
-    
-      echo "No Internet"
-      exit 1
-    
+        echo "No Internet"
+        exit 1
     fi
 
     if ! sed --version &>/dev/null; then
-    
-      echo "Sed is not installed"
-      exit 1
-    
+        echo "Sed is not installed"
+        exit 1
     fi
     
     if ! git --version &>/dev/null; then
-    
-      echo "Git is not installed"
-      exit 1
-    
+        echo "Git is not installed"
+        exit 1
     fi
 
 }
 
 function add_path {
-
     if ! echo $PATH | grep -q "$HOME/.local/bin"; then
         mkdir -p $HOME/.local/bin
         echo 'export PATH=$HOME/.local/bin:$PATH' >> $HOME/.bashrc
         source $HOME/.bashrc
     fi
-
 }
 
 check_init
