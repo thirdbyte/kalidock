@@ -56,7 +56,7 @@ docker build --rm -t $name . && \
 docker run --init -d --name=$name --shm-size=4g --hostname=$name --network=host --privileged -v $(echo $HOME)/.$name/:/home/$theusername $name && \
 docker stop $name && \
 echo "docker start $name &>/dev/null" > $HOME/.local/bin/$name-start && \
-echo "ssh -p65522 $theusername@localhost" > $HOME/.local/bin/$name-shell && \
+echo "ssh -X -p65522 $theusername@localhost" > $HOME/.local/bin/$name-shell && \
 echo "docker stop $name &>/dev/null" > $HOME/.local/bin/$name-stop && \
 echo "docker stop $name &>/dev/null && docker rm $name &>/dev/null && docker rmi $name --force &>/dev/null && docker rmi kalilinux/kali-bleeding-edge:latest --force &>/dev/null && echo 'Elevated privileges required' && sudo rm -rf $HOME/.$name &>/dev/null && rm -rf $HOME/.local/bin/$name-* &>/dev/null" > $HOME/.local/bin/$name-uninstall && \
 chmod +x $HOME/.local/bin/$name-* && \
