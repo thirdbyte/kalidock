@@ -21,16 +21,16 @@ KISS way of running Kali Linux (`kali-bleeding-edge`) in container with host net
 
 ## USAGE
 
-- `containername-start` : Start the container
-- `containername-stop` : Stop the container
-- `containername-shell` : SSH into the container
+- `container_name-start` : Start the container
+- `container_name-stop` : Stop the container
+- `container_name-shell` : SSH into the container
 
 ---
 
 ## UNINSTALLATION
 
-- `containername-uninstall` : Stop and remove the container, image and files
+- `container_name-uninstall` : Stop and remove the container, image and files
 
 ---
 
-**Note:** Replace `containername` with the name given to the container at the time of installation.
+**Note:** Replace `container_name` with the name given to the container at the time of installation.
