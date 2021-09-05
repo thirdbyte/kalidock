@@ -14,21 +14,22 @@ KISS way of running Kali Linux (`kali-bleeding-edge`) in container with host net
 
 ## INSTALLATION
 
-`curl -sS https://raw.githubusercontent.com/thirdbyte/kalidock/master/bootstrap.sh > /tmp/kdbs && bash /tmp/kdbs && rm -rf /tmp/kdbs`
+  1. `curl -sS https://raw.githubusercontent.com/thirdbyte/kalidock/master/bootstrap.sh > /tmp/kdbs`
+  2. `bash /tmp/kdbs`
 
 ---
 
 ## USAGE
 
-- `container_name-start` : Start the container
-- `container_name-stop` : Stop the container
-- `container_name-shell` : SSH into the container
+  - `container_name-start` : Start the container
+  - `container_name-stop` : Stop the container
+  - `container_name-shell` : SSH into the container
 
 ---
 
 ## UNINSTALLATION
 
-- `container_name-uninstall` : Stop and remove the container, image and files
+  - `container_name-uninstall` : Stop and remove the container, image and files
 
 ---
 
