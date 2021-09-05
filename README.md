@@ -1,4 +1,4 @@
-# kalidock
+# KaliDock
 
 KISS way of running Kali Linux (`kali-bleeding-edge`) in container with host networking, SSH X forwarding and more, all using `docker`
 
