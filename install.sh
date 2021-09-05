@@ -52,12 +52,12 @@ echo -n "Username : "; read theusername
 echo -n "Password : "; read thepassword
 
 mkdir -p $HOME/.$name && \
-cp -r /tmp/kalidock/home/. $HOME/.$name/. && \
+cp -r home/. $HOME/.$name/. && \
 echo "Elevated privileges required" && \
 sudo chown -R 1000:1000 $HOME/.$name/ && \
-sed -i "s/NUSER/$theusername/g" /tmp/kalidock/Dockerfile && \
-sed -i "s/NPASS/$thepassword/g" /tmp/kalidock/Dockerfile && \
-docker build --rm -t $name /tmp/kalidock/. && \
+sed -i "s/NUSER/$theusername/g" Dockerfile && \
+sed -i "s/NPASS/$thepassword/g" Dockerfile && \
+docker build --rm -t $name . && \
 docker run --init -d --name=$name --shm-size=4g --hostname=$name --network=host --privileged -v $(echo $HOME)/.$name/:/home/$theusername $name && \
 docker stop $name && \
 echo "docker start $name &>/dev/null" > $HOME/.local/bin/$name-start && \
