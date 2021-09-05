@@ -16,7 +16,7 @@ KISS way of running Kali Linux (`kali-bleeding-edge`) in container with host net
 
 ### INSTALLATION
 
-`curl -sS https://raw.githubusercontent.com/thirdbyte/kalidock/master/install.sh`
+`curl -sS https://raw.githubusercontent.com/thirdbyte/kalidock/master/install.sh | bash`
 
 ---
 
