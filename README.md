@@ -1,32 +1,60 @@
 # kalidock
 
-KISS and manual way of running Kali Linux (`kali-bleeding-edge`) in container with host networking, SSH X forwarding and more, all using `docker`
+KISS way of running Kali Linux (`kali-bleeding-edge`) in container with host networking, SSH X forwarding and more, all using `docker`
 
 ---
 
 ## PREREQUISITES
-  1. Docker must be installed - `docker --version`
-  2. `$USER` must be added to the `docker` group - `sudo usermod -aG docker $USER`
+  1. Docker must be installed
+  2. `$USER` must be a part of the `docker` group
+  3. `$USER` must be a part of the `sudo`/`wheel` group
+  4. Internet must be accessbile
 
 ---
 
+# AUTOMATED WAY
+
+## INSTALLATION
+
+`curl -sS https://raw.githubusercontent.com/thirdbyte/kalidock/master/install.sh`
+
+---
+
+## USAGE
+
+- `kalidock-start` : Start the container
+- `kalidock-stop` : Stop the container
+- `kalidock-shell` : SSH into the container
+
+**Note:** Replace `kalidock` with the name given to the container at the time of installation.
+
+---
+
+## REMOVAL
+
+- `kalidock-uninstall` : Stop and remove the container, image and files
+
+---
+
+# MANUAL WAY
+
 ## SETUP
 
-### A. Clone the Repository
+### Clone the Repository
   1. `git clone http://github.com/thirdbyte/kalidock`
   2. `cd kalidock`
 
-### B. Fix the Mount Point Permissions
+### Fix the Mount Point Permissions
 `sudo chown -R 1000:1000 home/`
 
-### C. Modify NUSER and NPASS in Containerfile
+### Modify NUSER and NPASS in Containerfile
   1. `sed -i "s/NUSER/kali/g" Dockerfile`
   2. `sed -i "s/NPASS/kali/g" Dockerfile`
 
-### D. Build the Container
+### Build the Container
 `docker build --rm -t kalidock .`
 
-### E. Create the Container
+### Create the Container
   1. `docker run --init -d --name=kalidock --shm-size=4g --hostname=kalidock --network=host --privileged -v $(pwd)/home:/home/kali kalidock`
   2. `docker stop kalidock`
 
@@ -34,16 +62,16 @@ KISS and manual way of running Kali Linux (`kali-bleeding-edge`) in container wi
 
 ## USAGE
 
-### F. Start the Container
+### Start the Container
 `docker start kalidock`
 
-### G. Interact with the Container
-`ssh -p33322 -X kali@localhost`
+### Interact with the Container
+`ssh -p65522 -X kali@localhost`
 
-### H. Run GUI Programs (Inside the Container)
+### Run GUI Programs (Inside the Container)
 `gui <program-command>`
 
-### I. Stop the Container
+### Stop the Container
 `docker stop kalidock`
 
 ---
