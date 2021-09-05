@@ -51,7 +51,6 @@ echo -n "Container name : "; read name
 echo -n "Username : "; read theusername
 echo -n "Password : "; read thepassword
 
-git clone http://github.com/thirdbyte/kalidock /tmp/kalidock && \
 mkdir -p $HOME/.$name && \
 cp -r /tmp/kalidock/home/. $HOME/.$name/. && \
 echo "Elevated privileges required" && \
