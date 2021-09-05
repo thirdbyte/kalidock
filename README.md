@@ -21,16 +21,16 @@ KISS way of running Kali Linux (`kali-bleeding-edge`) in container with host net
 
 ## USAGE
 
-- `kalidock-start` : Start the container
-- `kalidock-stop` : Stop the container
-- `kalidock-shell` : SSH into the container
+- `containername-start` : Start the container
+- `containername-stop` : Stop the container
+- `containername-shell` : SSH into the container
 
 ---
 
 ## UNINSTALLATION
 
-- `kalidock-uninstall` : Stop and remove the container, image and files
+- `containername-uninstall` : Stop and remove the container, image and files
 
 ---
 
-**Note:** For usage and uninstallation, replace `kalidock` with the name given to the container at the time of installation.
+**Note:** Replace `containername` with the name given to the container at the time of installation.
