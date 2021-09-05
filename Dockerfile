@@ -9,7 +9,7 @@ RUN nuser=NUSER && npass=NPASS && \
    useradd -rm -d /home/$nuser -s /bin/bash -G sudo -u 1000 $nuser && \
    echo "$nuser:$npass" | chpasswd && \
    echo 'Defaults !fqdn' >> /etc/sudoers && \
-   sed -i "s/#Port\ 22/Port\ 33322/g" /etc/ssh/sshd_config && \
+   sed -i "s/#Port\ 22/Port\ 65522/g" /etc/ssh/sshd_config && \
    mkdir -p /run/sshd && \
    apt-get -y autoremove && \
    apt-get -y clean && \
